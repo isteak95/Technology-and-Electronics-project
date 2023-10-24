@@ -1,0 +1,35 @@
+{
+    "brands": [
+      {
+        "id": 1,
+        "name": "Apple",
+        "image": "https://i.ibb.co/VHjNVJ1/knowledge-graph-logo.png"
+      },
+      {
+        "id": 2,
+        "name": "Samsung",
+        "image": "https://i.ibb.co/FzFvS6g/images-2.jpg"
+      },
+      {
+        "id": 3,
+        "name": "Sony",
+        "image": "https://i.ibb.co/XxPvhSN/sony-pictures-logo-brandlogos-net-iq9li-512x512.png"
+      },
+      {
+        "id": 4,
+        "name": "Google",
+        "image": "https://i.ibb.co/w0GwVf7/profile-vrt-raw-bytes-1587515358-10512.png"
+      },
+      {
+        "id": 5,
+        "name": "Intel",
+        "image": "https://i.ibb.co/LYYsJkY/images.png"
+      },
+      {
+        "id": 6,
+        "name": "Huawei",
+        "image": "https://i.ibb.co/Ypk5Wds/huai004-huawei.png"
+      }
+    ]
+  }
+  
