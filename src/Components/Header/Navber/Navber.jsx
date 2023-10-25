@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { AuthContext } from '../../../AuthProvider/AuthProvider';
+import Swal from 'sweetalert2';
 
 const Navber = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -11,6 +12,22 @@ const Navber = () => {
     const newTheme = theme === 'dark' ? 'light' : 'dark';
     setTheme(newTheme);
     document.documentElement.setAttribute('data-theme', newTheme);
+  };
+  const handleLogout = () => {
+    Swal.fire({
+      title: 'Logout',
+      text: 'Are you sure you want to log out?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#d33',
+      cancelButtonColor: '#3085d6',
+      confirmButtonText: 'Yes, log out',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        logOut(); // Log the user out using the provided logOut function.
+        Swal.fire('Logged out', 'You have been successfully logged out.', 'success');
+      }
+    });
   };
 
   return (
@@ -111,9 +128,10 @@ const Navber = () => {
             {theme === 'dark' ? 'Light' : 'Dark'}
           </button>
           {user ? (
+            
             <React.Fragment>
               <div className="flex items-center gap-2">
-              <div className=" lg:text-bold lg:text-xl lg:px-4 ml-2 lg:ml-auto md:ml-auto md:btn lg:btn  text-blue-600	">
+              <div className=" lg:text-bold lg:text-xl lg:px-4 ml-2 lg:ml-auto md:ml-auto md:btn lg:btn text-blue-600	">
                   {user.displayName}
                 </div>
                 <div className="lg:text-bold lg:text-xl mx-1 md:mx-auto lg:mx-auto  lg:ml-5">
@@ -127,7 +145,7 @@ const Navber = () => {
               </div>
               <div
                 className="md:btn md:btn-error lg:btn-error lg:mr-3 lg:btn p-1 rounded-md bg-red-400 text-white lg:text-bold lg:text-xl  cursor-pointer"
-                onClick={logOut}
+                onClick={handleLogout} // Call handleLogout when the button is clicked
               >
                 Logout
               </div>

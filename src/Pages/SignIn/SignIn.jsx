@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import auth from "../../Firebase/Firebase";
-import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { signInWithPopup, GoogleAuthProvider, signInWithEmailAndPassword } from "firebase/auth";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Link } from "react-router-dom";
@@ -9,7 +9,6 @@ import { AuthContext } from "../../AuthProvider/AuthProvider";
 const SignIn = () => {
   const { signIn } = useContext(AuthContext);
 
-  const [signInError, setSignInError] = useState("");
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
 
@@ -20,6 +19,9 @@ const SignIn = () => {
       .then((result) => {
         console.log(result.user);
         toast.success("Sign in with Google successful!");
+
+        document.getElementById("email").value = "";
+        document.getElementById("password").value = "";
       })
       .catch((error) => {
         console.error(error);
@@ -27,29 +29,35 @@ const SignIn = () => {
       });
   };
 
-  const handleSignIn = (e) => {
+  const handleSignIn = async (e) => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
-    setSignInError("");
+
     setEmailError("");
     setPasswordError("");
 
-    signIn(auth, email, password)
-      .then((result) => {
-        console.log(result.user);
-        toast.success("Sign-In successful!");
-      })
-      .catch((error) => {
-        // Display a generic error message without revealing Firebase details
-        setSignInError("Sign-In failed. Please check your credentials.");
+    try {
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      const user = userCredential.user;
+      console.log(user);
+      toast.success("Sign-In successful with email and password!");
+      e.target.email.value = "";
+      e.target.password.value = "";
+    } catch (error) {
+      if (error.code === "auth/invalid-email" || error.code === "auth/user-not-found") {
+        setEmailError("Email doesn't match.");
+      } else if (error.code === "auth/wrong-password") {
+        setPasswordError("Password doesn't match.");
+      } else {
         toast.error("Sign-In failed. Please check your credentials.");
-      });
+      }
+    }
   };
 
   return (
     <div>
-      <div className="hero bg-base-200 my-72">
+      <div className="hero bg-base-200 lg:my-24">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <div className="text-center lg:text-left">
             {/* Additional content */}
@@ -63,6 +71,7 @@ const SignIn = () => {
                 </label>
                 <input
                   name="email"
+                  id="email"
                   type="email"
                   placeholder="Email"
                   className="input input-bordered"
@@ -78,6 +87,7 @@ const SignIn = () => {
                 </label>
                 <input
                   name="password"
+                  id="password"
                   type="password"
                   placeholder="Password"
                   className="input input-bordered"
@@ -113,9 +123,6 @@ const SignIn = () => {
                   Sign In with Google
                 </button>
               </div>
-              {signInError && (
-                <div className="text-red-500 mt-4">{signInError}</div>
-              )}
             </form>
           </div>
         </div>

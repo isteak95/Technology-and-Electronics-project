@@ -44,7 +44,7 @@ const SignUp = () => {
 
   return (
     <div>
-      <div className="hero bg-base-200 my-72">
+      <div className="hero bg-base-200 lg:my-24">
         <div className="hero-content">
           <div className="card flex-shrink-0 shadow-2xl bg-base-100 w-[500px] h-[800px]">
             <h1 className="text-5xl font-bold text-center mt-14">Sign Up</h1>
