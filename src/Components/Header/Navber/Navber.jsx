@@ -124,7 +124,7 @@ const Navber = () => {
           </ul>
         </div>
         <div className="l:navbar-end md:navbar-end lg:gap-8 md:gap-2 ">
-          <button className="lg:btn md:btn btn lg:mr-3 md:mr-3 mr-1" onClick={toggleTheme}>
+          <button className="lg:btn md:btn btn lg:mr-1 md:mr-3 mr-1" onClick={toggleTheme}>
             {theme === 'dark' ? 'Light' : 'Dark'}
           </button>
           {user ? (

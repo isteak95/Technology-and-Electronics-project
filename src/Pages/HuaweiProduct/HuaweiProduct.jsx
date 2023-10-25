@@ -5,9 +5,10 @@ const AppleProduct = () => {
 
     if (!brandData || brandData.length === 0) {
         return (
-            <div>
-                <h2 className=" text-center text-5xl font-bold align-middle ">No products available for this brand......</h2>
-            </div>
+            <div className="my-[650px]">
+            <h2 className=" my-10 text-red-500 text-center text-5xl font-bold align-middle ">No products available for this brand......</h2>
+            <p className="text-red-500 text-center text-5xl font-bold align-middle">------- Please Product Add ---------</p>
+        </div>
         );
     }
 
@@ -31,9 +32,9 @@ const AppleProduct = () => {
                 <a href="#item2" className="btn btn-xs">2</a>
                 <a href="#item3" className="btn btn-xs">3</a>
             </div>
-            <div className="grid grid-cols-4 mx-28 my-10">
+            <div className="grid lg:grid-cols-4 md:grid-cols-1 gap-10 lg:mx-28 mx-20 my-10">
                 {brandData.map((product) => (
-                    <div key={product._id} className="card w-96 bg-base-100 shadow-xl">
+                    <div key={product._id} className="card lg:w-96 bg-base-100 shadow-xl">
                         <div className="card-body">
                             <img src={product.image} alt={product.name} />
                             <h3 className="text-2xl font-bold">{product.name}</h3>
@@ -43,7 +44,7 @@ const AppleProduct = () => {
                             <p className="text-xl font-semibold">Rating: {product.rating}</p>
                             <Link to={`/${product.brand}/details/${product._id}`}><button className="btn btn-primary w-full" >Details</button>
                             </Link>
-                            <Link to={`/${product.brand}/update/${product._id}`}><button className="btn btn-primary w-full" >Update</button>
+                            <Link to={`/${product.brand}/update/${product._id}`}><button className="btn btn-error w-full" >Update</button>
                             </Link>
                         </div>
                     </div>

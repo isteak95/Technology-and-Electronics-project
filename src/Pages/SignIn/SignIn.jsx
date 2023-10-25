@@ -60,11 +60,11 @@ const SignIn = () => {
       <div className="hero bg-base-200 lg:my-24">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <div className="text-center lg:text-left">
-            {/* Additional content */}
+           
           </div>
-          <div className="card flex-shrink-0 shadow-2xl bg-base-100 w-[500px] h-[800px]">
+          <div className="card flex-shrink-0 shadow-2xl bg-base-100 md:w-[500px] w-[380px] lg:w-[500px] h-[800px]">
             <h1 className="text-5xl font-bold text-center mt-14">Sign In</h1>
-            <form onSubmit={handleSignIn} className="h-[600px] w-[490px] card-body">
+            <form onSubmit={handleSignIn} className="h-[600px] lg:w-[490px] md:w-[490px] card-body">
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Email</span>

@@ -1,136 +1,57 @@
-import { useState } from 'react';
+import { Link, useLoaderData } from "react-router-dom";
 
-const AddProduct = () => {
-  const [brand, setBrand] = useState('');
-  const [type, setType] = useState('');
+const AppleProduct = () => {
+    const brandData = useLoaderData();
 
-  const handleBrandChange = (event) => {
-    setBrand(event.target.value);
-    // Reset the type when brand changes
-    setType('');
-  };
-
-  const handleProduct = (event) => {
-    event.preventDefault();
-
-    const form = event.target;
-
-    const name = form.name.value;
-    const price = form.price.value;
-    const description = form.description.value;
-    const rating = form.rating.value;
-    const image = form.image.value;
-
-    const newProduct = { name, brand, type, price, description, rating, image };
-
-    console.log(newProduct);
-
-    fetch(`http://localhost:5000/${brand}`, {
-      method: 'POST',
-      headers: {
-        'content-type': 'application/json',
-      },
-      body: JSON.stringify(newProduct),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        // Clear the form and set custom values
-        form.reset();
-        setBrand(''); // Clear the brand
-        setType(''); // Clear the type
-      });
-      
-  };
-
-  // Dummy data for brands and types
-  const brands = ['Apple', 'Samsung', 'Sony', 'Google', 'Intel', 'Huawei'];
-  const technologyTypes = ['Phone', 'Computer', 'Headphone'];
-  const otherTypes = ['Phone','Camara','Tab', 'Laptop', 'Smart TV', 'AirPods','VR Headset','processor','Watch'];
-
-  return (
-    <div className="mx-[290px] my-[180px]">
-      <div className="bg-base-200">
-        <div className="">
-          <div className="card w-full">
-            <form onSubmit={handleProduct} className="card-body">
-              <div className="flex gap-24 my-20">
-                <div className="form-control">
-                  <label className="label">
-                    <span className="label-text">Name</span>
-                  </label>
-                  <input name="name" className="input input-bordered w-[575px]" type="text" placeholder="Enter the name" required />
-                </div>
-                <div className="form-control">
-                  <label className="label">
-                    <span className="label-text">Brand Name</span>
-                  </label>
-                  <select name="brand" className="input input-bordered w-[575px]" onChange={handleBrandChange} value={brand} required>
-                    <option value="">Select Brand</option>
-                    {brands.map((brandName) => (
-                      <option key={brandName} value={brandName}>
-                        {brandName}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-              </div>
-              <div className="flex gap-24 my">
-                <div className="form-control">
-                  <label className="label">
-                    <span className="label-text">Type</span>
-                  </label>
-                  <select name="type" className="input input-bordered w-[575px]" value={type} onChange={(e) => setType(e.target.value)} required>
-                    <option value="">Select Type</option>
-                    {brand === 'Technology and Electronics'
-                      ? technologyTypes.map((type) => (
-                          <option key={type} value={type}>
-                            {type}
-                          </option>
-                        ))
-                      : otherTypes.map((type) => (
-                          <option key={type} value={type}>
-                            {type}
-                          </option>
-                        ))}
-                  </select>
-                </div>
-                <div className="form-control">
-                  <label className="label">
-                    <span className="label-text">Price</span>
-                  </label>
-                  <input name="price" className="input input-bordered w-[575px]" type="text" placeholder="Enter the price of product" required />
-                </div>
-              </div>
-              <div className="flex gap-24 mt-20">
-                <div className="form-control">
-                  <label className="label">
-                    <span className="label-text">Short Description</span>
-                  </label>
-                  <input name="description" className="input input-bordered w-[575px]" type="text" placeholder="Enter the product description" required />
-                </div>
-                <div className="form-control">
-                  <label className="label">
-                    <span className="label-text">Rating</span>
-                  </label>
-                  <input name="rating" className="input input-bordered w-[575px]" type="text" placeholder="Enter the Rating" required />
-                </div>
-              </div>
-              <div className="form-control my-20">
-                <label className="label">
-                  <span className="label-text">Image</span>
-                </label>
-                <input name="image" className="input input-bordered" type="text" placeholder="Enter the Image" required />
-              </div>
-              <div className="form-control my-16">
-                <button className="btn btn-primary" type="submit">Add New Product</button>
-              </div>
-            </form>
-          </div>
+    if (!brandData || brandData.length === 0) {
+        return (
+            <div className="my-[650px]">
+            <h2 className=" my-10 text-red-500 text-center text-5xl font-bold align-middle ">No products available for this brand......</h2>
+            <p className="text-red-500 text-center text-5xl font-bold align-middle">------- Please Product Add ---------</p>
         </div>
-      </div>
-    </div>
-  );
+        );
+    }
+
+
+
+    return (
+        <div>
+            <div className="carousel w-full ">
+                <div id="item1" className="carousel-item w-full ">
+                    <img className="w-full h-[900px] " src="https://i.ibb.co/nfP6m6w/dream-big-new-apple-iphone-14-pro-large-advertising-billboard-for-ee-mobile-network-provider-during.jpg" alt="dream-big-new-apple-iphone-14-pro-large-advertising-billboard-for-ee-mobile-network-provider-during-" border="0" />
+                </div>
+                <div id="item2" className="carousel-item w-full ">
+                    <img className="w-full h-[900px]" src="https://i.ibb.co/GVmZ58t/twitter-on-the-apple-iphone-7-ipad-pro-apple-watch-and-macbook-pro-JA919-A.jpg" alt="twitter-on-the-apple-iphone-7-ipad-pro-apple-watch-and-macbook-pro-JA919-A" border="0" />
+                </div>
+                <div id="item3" className="carousel-item w-full ">
+                    <img className="w-full h-[900px]" src="https://i.ibb.co/2PCqLMc/apple-iphone-11-billboard-in-shoreditch-city-of-london-uk-2-AAXXDT.jpg" alt="apple-iphone-11-billboard-in-shoreditch-city-of-london-uk-2-AAXXDT" border="0" />
+                </div>
+            </div>
+            <div className="flex justify-center w-full py-2 gap-2">
+                <a href="#item1" className="btn btn-xs">1</a>
+                <a href="#item2" className="btn btn-xs">2</a>
+                <a href="#item3" className="btn btn-xs">3</a>
+            </div>
+            <div className="grid lg:grid-cols-4 md:grid-cols-1 gap-10 lg:mx-28 mx-20 my-10">
+                {brandData.map((product) => (
+                    <div key={product._id} className="card lg:w-96 bg-base-100 shadow-xl">
+                        <div className="card-body">
+                            <img src={product.image} alt={product.name} />
+                            <h3 className="text-2xl font-bold">{product.name}</h3>
+                            <p className="text-xl font-semibold"> Brand Name: {product.brand}</p>
+                            <p className="text-xl font-semibold">Type: {product.type}</p>
+                            <p className="text-xl font-semibold">Price: ${product.price}</p>
+                            <p className="text-xl font-semibold">Rating: {product.rating}</p>
+                            <Link to={`/${product.brand}/details/${product._id}`}><button className="btn btn-primary w-full" >Details</button>
+                            </Link>
+                            <Link to={`/${product.brand}/update/${product._id}`}><button className="btn btn-error w-full" >Update</button>
+                            </Link>
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </div>
+    );
 };
 
-export default AddProduct;
+export default AppleProduct;

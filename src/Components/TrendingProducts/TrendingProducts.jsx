@@ -2,8 +2,8 @@
 const TrendingProducts = () => {
     return (
         <div>
-            <h1 className="text-center lg:text-7xl md:text-3xl font-extrabold mt-28">Trending Products</h1>
-            <div className="grid lg:grid-cols-5 md:grid-cols-2 md:mx-9 md:mr-8 gap-10  lg:ml-10 my-28">
+            <h1 className="text-center lg:text-7xl md:text-3xl font-extrabold text-2xl mt-28">Trending Products</h1>
+            <div className="grid lg:grid-cols-5 md:grid-cols-2 md:mx-9 md:mr-8 gap-10  lg:ml-10 my-28 lg:mx-1 mx-14">
 
                 <div className="card w-80 bg-base-100 shadow-xl">
                     <figure><img src="https://i.ibb.co/W64n0vs/au8100-01-500x500.jpg" alt="au8100-01-500x500" border="0" /></figure>
