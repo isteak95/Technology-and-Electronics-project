@@ -84,62 +84,62 @@ const router = createBrowserRouter([
       },
       {
         path: "/Apple/details/:productId",
-        element: <PorductDetails></PorductDetails>,
+        element: <PryvateRoute><PorductDetails></PorductDetails></PryvateRoute>,
         loader: () => fetch('http://localhost:5000/apple')
       },
       {
         path: "/samsung/details/:productId",
-        element: <PorductDetails></PorductDetails>,
+        element: <PryvateRoute><PorductDetails></PorductDetails></PryvateRoute>,
         loader: () => fetch("http://localhost:5000/samsung")
       },
       {
         path: "/sony/details/:productId",
-        element: <PorductDetails></PorductDetails>,
+        element: <PryvateRoute><PorductDetails></PorductDetails></PryvateRoute>,
         loader: () => fetch("http://localhost:5000/sony")
       },
       {
         path: "/google/details/:productId",
-        element: <PorductDetails></PorductDetails>,
+        element: <PryvateRoute><PorductDetails></PorductDetails></PryvateRoute>,
         loader: () => fetch("http://localhost:5000/google")
       },
       {
         path: "/intel/details/:productId",
-        element: <PorductDetails></PorductDetails>,
+        element: <PryvateRoute><PorductDetails></PorductDetails></PryvateRoute>,
         loader: () => fetch("http://localhost:5000/intel")
       },
       {
         path: "/huawei/details/:productId",
-        element: <PorductDetails></PorductDetails>,
+        element: <PryvateRoute><PorductDetails></PorductDetails></PryvateRoute>,
         loader: () => fetch("http://localhost:5000/huawei")
       },
       {
         path: "apple/update/:id",
-        element: <UpdateProduct></UpdateProduct>,
+        element: <PryvateRoute><UpdateProduct></UpdateProduct></PryvateRoute>,
         loader: ({ params }) => fetch(`http://localhost:5000/apple/${params.id}`)
       },
       {
         path: "sony/update/:id",
-        element: <UpdateProduct></UpdateProduct>,
+        element: <PryvateRoute><UpdateProduct></UpdateProduct></PryvateRoute>,
         loader: ({ params }) => fetch(`http://localhost:5000/sony/${params.id}`)
       },
       {
         path: "samsung/update/:id",
-        element: <UpdateProduct></UpdateProduct>,
+        element: <PryvateRoute><UpdateProduct></UpdateProduct></PryvateRoute>,
         loader: ({ params }) => fetch(`http://localhost:5000/samsung/${params.id}`)
       },
       {
         path: "google/update/:id",
-        element: <UpdateProduct></UpdateProduct>,
+        element: <PryvateRoute><UpdateProduct></UpdateProduct></PryvateRoute>,
         loader: ({ params }) => fetch(`http://localhost:5000/google/${params.id}`)
       },
       {
         path: "intel/update/:id",
-        element: <UpdateProduct></UpdateProduct>,
+        element: <PryvateRoute><UpdateProduct></UpdateProduct></PryvateRoute>,
         loader: ({ params }) => fetch(`http://localhost:5000/intel/${params.id}`)
       },
       {
         path: "huawei/update/:id",
-        element: <UpdateProduct></UpdateProduct>,
+        element: <PryvateRoute><UpdateProduct></UpdateProduct></PryvateRoute>,
         loader: ({ params }) => fetch(`http://localhost:5000/huawei/${params.id}`)
       }
 

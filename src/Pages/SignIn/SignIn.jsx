@@ -3,7 +3,7 @@ import auth from "../../Firebase/Firebase";
 import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { Link,  } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 const SignIn = () => {
@@ -41,27 +41,20 @@ const SignIn = () => {
         toast.success("Sign-In successful!");
       })
       .catch((error) => {
-        if (error.code === "auth/invalid-email" || error.code === "auth/user-not-found") {
-          setEmailError("Email doesn't match.");
-          toast.error("Email doesn't match.");
-        } else if (error.code === "auth/wrong-password") {
-          setPasswordError("Password doesn't match.");
-          toast.error("Password doesn't match.");
-        } else {
-          setSignInError(error.message);
-          toast.error(error.message);
-        }
+        // Display a generic error message without revealing Firebase details
+        setSignInError("Sign-In failed. Please check your credentials.");
+        toast.error("Sign-In failed. Please check your credentials.");
       });
   };
 
   return (
     <div>
-      <div className="hero bg-base-200">
+      <div className="hero bg-base-200 my-72">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <div className="text-center lg:text-left">
             {/* Additional content */}
           </div>
-          <div className="card flex-shrink-0 shadow-2xl bg-base-100 w-[500px]">
+          <div className="card flex-shrink-0 shadow-2xl bg-base-100 w-[500px] h-[800px]">
             <h1 className="text-5xl font-bold text-center mt-14">Sign In</h1>
             <form onSubmit={handleSignIn} className="h-[600px] w-[490px] card-body">
               <div className="form-control">
@@ -79,7 +72,7 @@ const SignIn = () => {
                   <div className="text-red-500 mt-2">{emailError}</div>
                 )}
               </div>
-              <div className="form-control">
+              <div className="form-control my-8">
                 <label className="label">
                   <span className="label-text">Password</span>
                 </label>
@@ -93,14 +86,14 @@ const SignIn = () => {
                 {passwordError && (
                   <div className="text-red-500 mt-2">{passwordError}</div>
                 )}
-                <label className="label">
+                <label className="label mt-5">
                   <a href="#" className="label-text-alt link link-hover">
                     Forgot password?
                   </a>
                 </label>
-                <label className="label">
+                <label className="label mt-5">
                   <Link to="/signup">
-                    <a  className="label-text-alt link link-hover">
+                    <a className="label-text-alt text-lg link link-hover">
                       Sign Up
                     </a>
                   </Link>
@@ -111,6 +104,12 @@ const SignIn = () => {
               </div>
               <div className="form-control mt-6">
                 <button onClick={handleGoogleSignIn} className="btn btn-google">
+                  <img
+                    className="h-8"
+                    src="https://i.ibb.co/Yb0mwP0/pngwing-com-4.png"
+                    alt="pngwing-com-4"
+                    border="0"
+                  />
                   Sign In with Google
                 </button>
               </div>

@@ -5,8 +5,9 @@ const AppleProduct = () => {
 
     if (!brandData || brandData.length === 0) {
         return (
-            <div>
-                <h2 className=" text-center text-5xl font-bold align-middle ">No products available for this brand......</h2>
+            <div className="my-[650px]">
+                <h2 className=" my-10 text-red-500 text-center text-5xl font-bold align-middle ">No products available for this brand......</h2>
+                <p className="text-red-500 text-center text-5xl font-bold align-middle">------- Please Product Add ---------</p>
             </div>
         );
     }

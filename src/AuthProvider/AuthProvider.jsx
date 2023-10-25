@@ -1,3 +1,4 @@
+// AuthProvider.js
 import { createContext, useEffect, useState } from "react";
 import {
   createUserWithEmailAndPassword,
@@ -7,10 +8,7 @@ import {
 } from "firebase/auth";
 import auth from "../Firebase/Firebase";
 
-
 export const AuthContext = createContext(null);
-
-
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
@@ -33,14 +31,30 @@ const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
-      console.log("user in the auth state changed", currentUser);
       setUser(currentUser);
       setLoading(false);
     });
+    
+    // Check for authentication state in local storage
+    const storedUser = localStorage.getItem("user");
+    if (storedUser) {
+      setUser(JSON.parse(storedUser));
+      setLoading(false);
+    }
+
     return () => {
       unSubscribe();
     };
   }, []);
+
+  // Save user state to local storage whenever it changes
+  useEffect(() => {
+    if (user) {
+      localStorage.setItem("user", JSON.stringify(user));
+    } else {
+      localStorage.removeItem("user");
+    }
+  }, [user]);
 
   const authInfo = {
     user,
