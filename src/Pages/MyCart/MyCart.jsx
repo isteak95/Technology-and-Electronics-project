@@ -1,9 +1,40 @@
 
 import { useLoaderData } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const MyCart = () => {
     const cartData = useLoaderData();
     console.log(cartData);
+    const handleDelete = _id => {
+        console.log(_id);
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                fetch(`http://localhost:5000/mycart/${_id}`, {
+                    method: 'DELETE', 
+                })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+                    if (data.deletedCount > 0) {
+                        Swal.fire(
+                            'Deleted!',
+                            'Your file has been deleted.',
+                            'success'
+                        );
+                    }
+                })
+            }
+        })
+    }
+    
 
     return (
         <div>
@@ -33,8 +64,11 @@ const MyCart = () => {
                             <h1 className="lg:text-xl text-center  font-bold lg:my-9 md:my-4 my-2">Price </h1>
                                 <h2 className="items-center text-center  lg:text-2xl">{product.price}</h2>
                             </div>
-                            <div className="card-actions md:justify-end justify-center lg:justify-end items-center lg:p-5 p-3 md:mt-20 md:mr-2">
-                                <button className="btn btn-error text-white">Delete Product</button>
+                            <div className="card-actions md:justify-end justify-center lg:justify-end  lg:p-5 md:mt-32 p-3 md:mr-2">
+                                <button onClick={() => handleDelete(product._id) }
+                                 className="btn btn-error text-white"
+                                 >Delete Product
+                                 </button>
                             </div>
                         </div>
                     ))};

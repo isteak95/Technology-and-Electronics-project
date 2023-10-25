@@ -88,7 +88,7 @@ const DetailsPage = () => {
     return (
         <div>
             <div className="grid grid-cols-1 gap-4 justify-center">
-                <div className="card lg:w-1/3 lg:mx-[620px] mx-5 my-44 lg:mb-44 lg:mt-18 bg-base-100 shadow-xl">
+                <div className="card lg:w-[950px] lg:mx-[520px] md:mx-20 mx-5 mt-20 md:mb-12 lg:mb-44 mb-8 lg:mt-18 bg-base-100 shadow-xl">
                     <figure>
                         <img className="w-full lg:h-full object-cover" src={product.image} alt={product.name} />
                     </figure>

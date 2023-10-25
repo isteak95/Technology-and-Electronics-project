@@ -13,9 +13,9 @@ const TopBrand = () => {
   }, []);
 
   return (
-    <div className="my-28 shadow-md p-16">
-      <h1 className="text-7xl font-extrabold text-center mb-28">Our Top Brands</h1>
-      <div className="grid lg:grid-cols-6 md:grid-cols-3 ml-8">
+    <div className="my-28 shadow-md lg:p-16">
+      <h1 className="lg:text-7xl md:text-3xl font-extrabold text-center mb-28"> Top Brands</h1>
+      <div className="grid lg:grid-cols-6 gap-4 md:grid-cols-2 md:mx-28 lg:ml-8">
         {brands.map((brand) => (
           <Link to={`/${brand.name}`} key={brand.id} className="brand-link">
             <div className="card w-64 h-80 bg-base-100 shadow-xl">

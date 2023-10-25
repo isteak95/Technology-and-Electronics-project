@@ -2,9 +2,9 @@
 const TrendingProducts = () => {
     return (
         <div>
-            <h1 className="text-center text-7xl font-extrabold mt-28">Trending Products</h1>
-            <div className="grid lg:grid-cols-5  ml-10 my-28">
-                
+            <h1 className="text-center lg:text-7xl md:text-3xl font-extrabold mt-28">Trending Products</h1>
+            <div className="grid lg:grid-cols-5 md:grid-cols-2 md:mx-9 md:mr-8 gap-10  lg:ml-10 my-28">
+
                 <div className="card w-80 bg-base-100 shadow-xl">
                     <figure><img src="https://i.ibb.co/W64n0vs/au8100-01-500x500.jpg" alt="au8100-01-500x500" border="0" /></figure>
                     <div className="card-body">
@@ -25,8 +25,8 @@ const TrendingProducts = () => {
                         </div>
                         <div className="card-actions justify-end">
 
-                        <button className="btn btn-primary">Buy Now</button>
-                            
+                            <button className="btn btn-primary">Buy Now</button>
+
                         </div>
                     </div>
                 </div>
@@ -53,7 +53,7 @@ const TrendingProducts = () => {
                         </div>
                         <div className="card-actions justify-end">
 
-                        <button className="btn btn-primary">Buy Now</button>
+                            <button className="btn btn-primary">Buy Now</button>
                         </div>
                     </div>
                 </div>
@@ -82,7 +82,7 @@ const TrendingProducts = () => {
                         </div>
                         <div className="card-actions justify-end">
 
-                        <button className="btn btn-primary">Buy Now</button>
+                            <button className="btn btn-primary">Buy Now</button>
                         </div>
                     </div>
                 </div>
@@ -112,15 +112,15 @@ const TrendingProducts = () => {
                         </div>
                         <div className="card-actions justify-end">
 
-                        <button className="btn btn-primary">Buy Now</button>
+                            <button className="btn btn-primary">Buy Now</button>
                         </div>
                     </div>
                 </div>
                 <div className="card w-80 bg-base-100 shadow-xl">
-                    <figure><img className="bg-white" src="https://i.ibb.co/fqZcDFT/iphone-15-pro-max-blue-titanium-1-500x500.webp" alt="iphone-15-pro-max-blue-titanium-1-500x500" border="0"/></figure>
+                    <figure><img className="bg-white" src="https://i.ibb.co/fqZcDFT/iphone-15-pro-max-blue-titanium-1-500x500.webp" alt="iphone-15-pro-max-blue-titanium-1-500x500" border="0" /></figure>
                     <div className="card-body">
                         <h2 className="card-title">
-                        iPhone 15 Pro Max 512GB Blue Titanium (Singapore)
+                            iPhone 15 Pro Max 512GB Blue Titanium (Singapore)
 
 
                         </h2>
@@ -130,9 +130,9 @@ const TrendingProducts = () => {
 
                         </p>
                         <p>Display: 6.7" Super Retina XDR Always-On display
-Processor: A17 Pro chip, Storage: 512GB
-Camera: 48MP + 12MP + 12MP Rear, 12MP Front
-Features: Dynamic Island, Face ID, eSIM Support, USB Type-C 3.0, DisplayPort</p>
+                            Processor: A17 Pro chip, Storage: 512GB
+                            Camera: 48MP + 12MP + 12MP Rear, 12MP Front
+                            Features: Dynamic Island, Face ID, eSIM Support, USB Type-C 3.0, DisplayPort</p>
                         <h2 className="text-xl text-bold">price :227,000 TK</h2>
                         <div className="rating">
                             <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
@@ -143,7 +143,7 @@ Features: Dynamic Island, Face ID, eSIM Support, USB Type-C 3.0, DisplayPort</p>
                         </div>
                         <div className="card-actions justify-end">
 
-                        <button className="btn btn-primary">Buy Now</button>
+                            <button className="btn btn-primary">Buy Now</button>
                         </div>
                     </div>
                 </div>
