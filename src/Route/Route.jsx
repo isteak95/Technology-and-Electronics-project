@@ -15,6 +15,7 @@ import HuaweiProduct from "../Pages/HuaweiProduct/HuaweiProduct"
 import UpdateProduct from "../Pages/UpdateProduct/UpdateProduct";
 import SignIn from "../Pages/SignIn/SignIn";
 import SignUp from "../Pages/SignUp/SignUp";
+import PryvateRoute from "../pryvateRoute/privateRoute";
 
 
 
@@ -45,7 +46,7 @@ import SignUp from "../Pages/SignUp/SignUp";
       
         {
           path : "/mycart",
-          element : <MyCart></MyCart>,
+          element : <PryvateRoute><MyCart></MyCart></PryvateRoute>,
           loader : () => fetch ("http://localhost:5000/mycart")
 
         },

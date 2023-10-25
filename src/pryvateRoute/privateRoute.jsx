@@ -1,16 +1,16 @@
-// import { useContext } from "react";
-// import { AuthContext } from "../AuthProvider/AuthProvider";
-// import { Navigate } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../AuthProvider/AuthProvider";
+import { Navigate } from "react-router-dom";
 
-// const PrivateRoute = ({children }) => {
-//   const { user } = useContext(AuthContext);
+const PrivateRoute = ({children }) => {
+  const { user } = useContext(AuthContext);
 
-//   if (user) {
-//     return children; 
-//   }
+  if (user) {
+    return children; 
+  }
 
  
-//   return <Navigate to="/signin" />;
-// };
+  return <Navigate to="/mycart" />;
+};
 
-// export default PrivateRoute;
+export default PrivateRoute;
