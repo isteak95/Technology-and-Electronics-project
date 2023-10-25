@@ -12,7 +12,7 @@ const UpdateProduct = () => {
 
     const handleBrandChange = (event) => {
         setBrande(event.target.value);
-        
+
         setType('');
     };
 
@@ -132,27 +132,29 @@ const UpdateProduct = () => {
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
-                                        <span className="label-text">Price</span>
-                                    </label>
-                                    <input
-                                        name="price"
-                                        defaultValue={price}
-                                        className="input input-bordered w-[575px]"
-                                        type="text"
-                                        placeholder="Enter the price of the product"
-                                        
-                                    />
-                                </div>
-                            </div>
-                            <div className="flex gap-24 mt-20">
-                                <div className="form-control">
-                                    <label className="label">
                                         <span className="label-text">Rating</span>
                                     </label>
                                     <input
                                         name="rating"
                                         defaultValue={rating}
+
                                         className="input input-bordered w-[575px]"
+                                        type="text"
+                                        placeholder="Enter the price of the product"
+
+                                    />
+                                </div>
+                            </div>
+                            <div className=" gap-24 mt-20">
+                                <div className="form-control ">
+                                    <label className="label">
+                                        <span className="label-text text-xl">Price</span>
+                                    </label>
+                                    <input
+                                        name="price"
+                                        defaultValue={price}
+
+                                        className="input input-bordered"
                                         type="text"
                                         placeholder="Enter the Rating"
                                         required
@@ -161,7 +163,7 @@ const UpdateProduct = () => {
                             </div>
                             <div className="form-control my-20">
                                 <label className="label">
-                                    <span className="label-text">Image</span>
+                                    <span className="label-text text-xl">Image</span>
                                 </label>
                                 <input
                                     name="image"

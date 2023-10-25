@@ -13,6 +13,10 @@ import GoogleProduct from "../Pages/GoogleProduct/GoogleProduct"
 import IntelProduct from "../Pages/IntelProduct/IntelProduct"
 import HuaweiProduct from "../Pages/HuaweiProduct/HuaweiProduct"
 import UpdateProduct from "../Pages/UpdateProduct/UpdateProduct";
+import SignIn from "../Pages/SignIn/SignIn";
+import SignUp from "../Pages/SignUp/SignUp";
+
+
 
 
 
@@ -30,6 +34,15 @@ import UpdateProduct from "../Pages/UpdateProduct/UpdateProduct";
           path : "/addproduct",
           element : <AddProduct></AddProduct>
         },
+        {
+          path : "/signup",
+          element : <SignUp></SignUp>
+        },
+        {
+          path : "/signin",
+          element :<SignIn></SignIn>
+        },
+      
         {
           path : "/mycart",
           element : <MyCart></MyCart>,
