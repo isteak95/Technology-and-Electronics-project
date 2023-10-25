@@ -12,6 +12,7 @@ import PorductDetails from  "../Pages/ProductDetails/ProductDetails"
 import GoogleProduct from "../Pages/GoogleProduct/GoogleProduct"
 import IntelProduct from "../Pages/IntelProduct/IntelProduct"
 import HuaweiProduct from "../Pages/HuaweiProduct/HuaweiProduct"
+import UpdateProduct from "../Pages/UpdateProduct/UpdateProduct";
 
 
 
@@ -95,6 +96,36 @@ import HuaweiProduct from "../Pages/HuaweiProduct/HuaweiProduct"
           element :<PorductDetails></PorductDetails>,
           loader : () => fetch("http://localhost:5000/huawei")
         },
+        {
+          path :"apple/update/:id",
+          element : <UpdateProduct></UpdateProduct>,
+          loader : ({params}) => fetch (`http://localhost:5000/apple/${params.id}`)
+        },
+        {
+          path :"sony/update/:id",
+          element : <UpdateProduct></UpdateProduct>,
+          loader : ({params}) => fetch (`http://localhost:5000/sony/${params.id}`)
+        },
+        {
+          path :"samsung/update/:id",
+          element : <UpdateProduct></UpdateProduct>,
+          loader : ({params}) => fetch (`http://localhost:5000/samsung/${params.id}`)
+        },
+        {
+          path :"google/update/:id",
+          element : <UpdateProduct></UpdateProduct>,
+          loader : ({params}) => fetch (`http://localhost:5000/google/${params.id}`)
+        },
+        {
+          path :"intel/update/:id",
+          element : <UpdateProduct></UpdateProduct>,
+          loader : ({params}) => fetch (`http://localhost:5000/intel/${params.id}`)
+        },
+        {
+          path :"huawei/update/:id",
+          element : <UpdateProduct></UpdateProduct>,
+          loader : ({params}) => fetch (`http://localhost:5000/huawei/${params.id}`)
+        }
         
        
       ]

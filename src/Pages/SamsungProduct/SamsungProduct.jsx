@@ -1,6 +1,6 @@
 import { Link, useLoaderData } from "react-router-dom";
 
-const SamsungProduct = () => {
+const AppleProduct = () => {
     const brandData = useLoaderData();
 
     if (!brandData || brandData.length === 0) {
@@ -43,7 +43,7 @@ const SamsungProduct = () => {
                             <p className="text-xl font-semibold">Rating: {product.rating}</p>
                             <Link to={`/${product.brand}/details/${product._id}`}><button className="btn btn-primary w-full" >Details</button>
                             </Link>
-                            <Link><button className="btn btn-primary w-full" >Update</button>
+                            <Link to={`/${product.brand}/update/${product._id}`}><button className="btn btn-primary w-full" >Update</button>
                             </Link>
                         </div>
                     </div>
@@ -53,4 +53,4 @@ const SamsungProduct = () => {
     );
 };
 
-export default SamsungProduct;
+export default AppleProduct;
