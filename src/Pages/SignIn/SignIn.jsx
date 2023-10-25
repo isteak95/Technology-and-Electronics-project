@@ -3,7 +3,7 @@ import auth from "../../Firebase/Firebase";
 import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { Link, NavLink } from "react-router-dom";
+import { Link,  } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 const SignIn = () => {
@@ -99,11 +99,11 @@ const SignIn = () => {
                   </a>
                 </label>
                 <label className="label">
-                  <NavLink to="/signup">
+                  <Link to="/signup">
                     <a  className="label-text-alt link link-hover">
                       Sign Up
                     </a>
-                  </NavLink>
+                  </Link>
                 </label>
               </div>
               <div className="form-control mt-6">
